@@ -79,6 +79,7 @@
         packages = rec {
           spotify-adblock = pkgs.stdenv.mkDerivation {
             name = "spotify-adblock";
+            pname = "spotify-adblock";
             phases = [ "installPhase" ];
             installPhase = ''
               mkdir -p $out/bin
