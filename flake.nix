@@ -84,7 +84,12 @@
             installPhase = ''
               mkdir -p $out/bin
 
-              echo "env LD_PRELOAD=${bin} ${pkgs.spotify}/bin/spotify %U" > $out/bin/spotify-adblock
+              cat << EOL > $out/bin/spotify-adblock
+              #! /usr/bin/env nix-shell
+              #! nix-shell -i bash -p bash
+
+              env LD_PRELOAD=${bin} ${pkgs.spotify}/bin/spotify %U
+              EOL
               chmod +x $out/bin/spotify-adblock
 
               mkdir -p $out/share/applications/
