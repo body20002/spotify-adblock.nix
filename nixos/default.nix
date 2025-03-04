@@ -1,8 +1,12 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib; let
   cfg = config.programs.spotify-adblock;
-in
-{
+in {
   options.programs.spotify-adblock = {
     enable = mkEnableOption "Enable Spotify Adblock";
     package = mkOption {
@@ -17,7 +21,7 @@ in
     };
   };
   config = mkIf cfg.enable {
-    environment.systemPackages = [ cfg.package ];
+    environment.systemPackages = [cfg.package];
     environment.etc."spotify-adblock/config.toml".source = cfg.configFile;
   };
 }

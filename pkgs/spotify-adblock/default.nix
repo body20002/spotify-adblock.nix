@@ -1,4 +1,10 @@
-{ lib, fetchFromGitHub, rustPlatform, makeDesktopItem, spotify }:
+{
+  lib,
+  fetchFromGitHub,
+  rustPlatform,
+  makeDesktopItem,
+  spotify,
+}:
 rustPlatform.buildRustPackage rec {
   pname = "spotify-adblock";
   version = "1.0.3";
@@ -16,7 +22,7 @@ rustPlatform.buildRustPackage rec {
     description = "Adblocker for Spotify";
     homepage = "https://github.com/abba23/spotify-adblock";
     license = licenses.gpl3;
-    maintainers = with lib.maintainers; [ body20002 ];
+    maintainers = with lib.maintainers; [body20002];
   };
 
   desktopItem = makeDesktopItem {
@@ -27,7 +33,7 @@ rustPlatform.buildRustPackage rec {
     exec = "env LD_PRELOAD=@out@/lib/libspotifyadblock.so ${spotify}/bin/spotify %U";
     tryExec = "${spotify}/bin/spotify";
     terminal = false;
-    categories = [ "Audio" "Music" "Player" "AudioVideo" ];
+    categories = ["Audio" "Music" "Player" "AudioVideo"];
     startupWMClass = "spotify";
   };
 
