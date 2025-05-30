@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-rjgLrJ42eFST3aEcc59UWi7kpwoxzE0oDhY0Bvb7yOg==";
   };
 
-  cargoHash = "sha256-wPV+ZY34OMbBrjmhvwjljbwmcUiPdWNHFU3ac7aVbIQ=";
+  cargoHash = "sha256-oGpe+kBf6kBboyx/YfbQBt1vvjtXd1n2pOH6FNcbF8M=";
 
   meta = with lib; {
     description = "Adblocker for Spotify";
